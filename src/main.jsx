@@ -10,6 +10,7 @@ import AuthProvider from './AuthProvider/AuthProvider';
 import Home from './Pages/Home/Home';
 import Login from './Pages/User/Login';
 import Register from './Pages/User/Register';
+import ContactList from './Pages/ContactList/ContactList';
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/contactList",
+        element: <ContactList></ContactList>
       },
     ]
   },

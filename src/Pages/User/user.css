@@ -1,0 +1,8 @@
+.register form {
+    /* background: linear-gradient(180deg, #ffffff00 -9%, #f000b8 20%, #570df8 51%, #000000de 104%); */
+    background: radial-gradient(circle, #f8f5f5 -2%, #2c2e47 35%, #2e1563 20%, #000000de 100%);
+}
+
+.login form {
+    background: radial-gradient(circle, #f8f5f5 -2%, #2c2e47 35%, #2e1563 20%, #000000de 100%);
+}

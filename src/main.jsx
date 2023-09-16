@@ -8,6 +8,8 @@ import {
 import MainLayout from './Layout/MainLayout';
 import AuthProvider from './AuthProvider/AuthProvider';
 import Home from './Pages/Home/Home';
+import Login from './Pages/User/Login';
+import Register from './Pages/User/Register';
 
 
 const router = createBrowserRouter([
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
       },
     ]
   },

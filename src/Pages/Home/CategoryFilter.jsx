@@ -29,7 +29,6 @@ const CategoryFilter = () => {
     // console.log(uniqueCategories);
 
 
-
     return (
         <div>
             <div className='flex items-center justify-between gap-5'>
@@ -50,7 +49,7 @@ const CategoryFilter = () => {
             </div>
 
             {/* table  */}
-            <div className="overflow-x-auto mt-6 ">
+            <div className="overflow-x-auto mt-6">
                 <table className="table text-white ">
                     {/* head */}
                     <thead>
@@ -63,7 +62,13 @@ const CategoryFilter = () => {
                         </tr>
                     </thead>
 
-                    <tbody>
+
+                    <tbody className='relative h-full'>
+                        {
+                            cateContacts.length === 0 && <div className='ms-[400px] mt-[20%]'>
+                                <span className="loading loading-infinity loading-lg"></span>
+                            </div>
+                        }
                         {
                             cateContacts?.map(ct => <TableRow
                                 key={ct._id}

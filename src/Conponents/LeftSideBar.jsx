@@ -62,7 +62,7 @@ const LeftSideBar = ({ setSidebar = false }) => {
 
 
     return (
-        <div className=' bg-gray-800 h-full py-6 px-4 text-white'>
+        <div className=' bg-[#20192f] h-full py-6 px-4 text-white'>
 
             {/* logo */}
             <div className='mb-8 hidden lg:block'>

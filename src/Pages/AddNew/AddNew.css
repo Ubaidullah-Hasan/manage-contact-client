@@ -1,0 +1,16 @@
+#mobile-number{
+    padding: 0 10px;
+    border-radius: 4px;
+}
+.addnew-form{
+        /* background: radial-gradient(transparent, #000000ad); */
+        background-image: linear-gradient(360deg, #1b033b , #2b4075);
+        color: white;
+}
+
+.PhoneInputCountrySelectArrow{
+    color: black;
+}
+.PhoneInputInput{
+    border: 1px solid #dcdcde;
+}

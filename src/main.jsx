@@ -11,6 +11,8 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/User/Login';
 import Register from './Pages/User/Register';
 import ContactList from './Pages/ContactList/ContactList';
+import PrivateRoute from './Routes/PrivateRoute';
+import AddNew from './Pages/AddNew/AddNew';
 
 
 const router = createBrowserRouter([
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/addnew",
+        element: <PrivateRoute><AddNew></AddNew></PrivateRoute>,
       },
       {
         path: "/login",

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import TableRow from '../../Conponents/TableRow';
-import { AiOutlineCloudDownload, AiOutlineDelete, AiOutlineShareAlt } from 'react-icons/ai';
+import { AiOutlineCloudDownload, AiOutlineDelete } from 'react-icons/ai';
 import { HiOutlineUserAdd } from 'react-icons/hi';
 import { CSVLink, } from "react-csv";
-import { useForm } from 'react-hook-form';
-import useUser from '../../Hooks/useUser';
 import "./ContactList.css"
-import ShareForm from './ShareForm';
 import { BsSearch } from "react-icons/bs";
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 
@@ -38,8 +36,6 @@ const ContactList = () => {
 
 
     // do select the contacts which will be shared with person
-    
-
     const handleContactSelect = (contactId) => {
         if (selectedContacts.includes(contactId)) {
             setSelectedContacts(selectedContacts.filter(id => id !== contactId));
@@ -141,7 +137,7 @@ const ContactList = () => {
 
                 <button onClick={() => handleDeleteContact(selectedContacts)} className='btn btn-white btn-sm rounded-md disabled:bg-white' disabled={selectedContacts.length === 0} ><AiOutlineDelete size={22} /></button>
 
-                <button className='btn btn-white btn-sm rounded-md'><HiOutlineUserAdd size={22} /></button>
+                <Link to={"/addnew"}><button className='btn btn-white btn-sm rounded-md'><HiOutlineUserAdd size={22} /></button></Link>
             </div>
 
             <div className="overflow-x-auto">

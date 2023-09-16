@@ -5,7 +5,6 @@ import { GiRunningNinja } from "react-icons/gi";
 import { MdAddAPhoto } from "react-icons/md";
 import { CiViewList } from "react-icons/ci";
 import { VscLiveShare } from "react-icons/vsc";
-import { BsSearch } from "react-icons/bs";
 // import { AuthContext } from '../AuthProvider/AuthProvider';
 import ProfileMenu from '../Conponents/ProfileMenu';
 
@@ -21,44 +20,6 @@ const LeftSideBar = ({ setSidebar = false }) => {
     const userRule = userInfo?.userRole || 'Visitor';
     const [profileNav, setProfileNav] = useState(false);
     const profileImg = userInfo?.profileImg;
-
-
-    const [searchText, setSearchText] = useState('');
-    const navigate = useNavigate();
-
-
-    const handleInputChange = (e) => {
-        setSearchText(e.target.value);
-    };
-
-
-    const handleSearch = (event) => {
-        console.log(searchText)
-
-        if (!searchText) {
-            console.log('nie')
-            return;
-        }
-
-        if (event) {
-            event.preventDefault();
-            fetch(`https://contact-management-server-ten.vercel.app/contacts/search?query=${searchText}`)
-                .then(res => res.json())
-                .then(data => {
-                    navigate(`/contacts/search?query=${searchText}`, { state: { searchData: data } });
-                    setSidebar(false);
-                })
-        }
-    };
-    // console.log(contacts)
-
-
-    const handleButtonClick = () => {
-        handleSearch();
-    };
-
-
-
 
 
     return (
@@ -117,23 +78,6 @@ const LeftSideBar = ({ setSidebar = false }) => {
                 }
 
             </ul>
-
-            {/* search field */}
-
-            <form onSubmit={handleSearch}>
-                <div className="flex items-center border rounded-full px-4 py-2 my-10 ">
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="bg-transparent outline-none flex-grow"
-                        value={searchText}
-                        onChange={handleInputChange}
-                    />
-                    <button type="submit" className="ml-2">
-                        <BsSearch onClick={handleButtonClick} />
-                    </button>
-                </div>
-            </form>
 
 
         </div >

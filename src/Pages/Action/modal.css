@@ -1,0 +1,26 @@
+.modal-bg {
+    filter: blur(5px);
+}
+
+.cus-modal {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 600px;
+    transform: translate(55%, 12%);
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 200px) {
+    .cus-modal {
+        position: fixed;
+        
+        left: 0;
+        bottom: 0;
+        top: 0;
+        width: 90%;
+        margin: 0 auto;
+        transform: translate(0%, 20%);
+    }
+}

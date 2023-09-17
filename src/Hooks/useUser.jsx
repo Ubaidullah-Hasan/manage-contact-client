@@ -7,7 +7,7 @@ const useUser = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:4000/users/${user?.email}`)
+            fetch(`https://contact-manage-server-rho.vercel.app/users/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setUserInfo(data);

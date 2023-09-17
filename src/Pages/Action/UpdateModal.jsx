@@ -27,7 +27,7 @@ const UpdateModal = ({ setModal, modal, contact, refetch }) => {
         console.log(updateInfo)
         setUpdating(true);
 
-        fetch(`http://localhost:4000/contacts/${_id}`, {
+        fetch(`https://contact-manage-server-rho.vercel.app/contacts/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

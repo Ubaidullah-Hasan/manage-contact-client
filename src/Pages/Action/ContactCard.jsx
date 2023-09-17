@@ -11,7 +11,7 @@ const ContactCard = ({ contact, refetch }) => {
 
     const handleDelete = (item) => {
         // console.log(item?._id)
-        fetch(`http://localhost:4000/contacts/${item?._id}`, {
+        fetch(`https://contact-manage-server-rho.vercel.app/contacts/${item?._id}`, {
             method: "DELETE",
         })
             .then(res => res.json())

@@ -25,7 +25,7 @@ const ContactList = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:4000/contacts")
+        fetch("https://contact-manage-server-rho.vercel.app/contacts")
             .then(res => res.json())
             .then(data => {
                 setContacts(data);
@@ -57,7 +57,7 @@ const ContactList = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
-            axios.post('http://localhost:4000/deleteMultipleContacts', { contactIds: arrIds })
+            axios.post('https://contact-manage-server-rho.vercel.app/deleteMultipleContacts', { contactIds: arrIds })
                 .then(() => {
                     if (result.isConfirmed) {
                         Swal.fire(
@@ -77,7 +77,7 @@ const ContactList = () => {
 
 
     // search for contacts
-    
+
     const [searchText, setSearchText] = useState('');
 
     const handleInputChange = (e) => {
@@ -95,7 +95,7 @@ const ContactList = () => {
 
         if (event) {
             event.preventDefault();
-            fetch(`http://localhost:4000/contacts/search?query=${searchText}`)
+            fetch(`https://contact-manage-server-rho.vercel.app/contacts/search?query=${searchText}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
@@ -104,7 +104,7 @@ const ContactList = () => {
         }
     };
     // console.log(contacts)
-    
+
 
 
 
@@ -112,20 +112,20 @@ const ContactList = () => {
     return (
         <div className='overflow-hidden'>
 
-            <div className='mt-4 mb-10 mx-3 px-5 py-1 md:mx-0 flex items-center justify-between gap-x-3 bg-[#20192F]'>
+            <div className='mt-4 mb-10 px-1 lg:px-5 py-1 md:mx-0 flex items-center justify-between gap-1 lg:gap-x-3 bg-[#20192F]'>
 
                 {/* search field */}
-                <form onSubmit={handleSearch} className='ms-auto lg:w-[400px]'>
-                    <div className="flex bg-white items-center border rounded px-4 py-1">
+                <form onSubmit={handleSearch} className='md:ms-auto w-[200px] lg:w-[400px]'>
+                    <div className="flex bg-white items-center border rounded px-2 lg:px-4 py-1">
                         <input
                             type="text"
                             placeholder="Search"
-                            className="bg-white outline-none flex-grow"
+                            className="bg-white outline-none lg:flex-grow w-full"
                             value={searchText}
                             onChange={handleInputChange}
                         />
                         <button type="submit" className="ml-2">
-                            <BsSearch  />
+                            <BsSearch />
                         </button>
                     </div>
                 </form>

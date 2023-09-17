@@ -8,13 +8,13 @@ const CategoryFilter = () => {
     // console.log(selectedOption)
 
     useEffect(() => {
-        fetch("http://localhost:4000/contacts/categories")
+        fetch("https://contact-manage-server-rho.vercel.app/contacts/categories")
             .then(res => res.json())
             .then(data => {
                 setCategories(data)
             })
 
-        fetch(`http://localhost:4000/contacts/category/${selectedOption}`)
+        fetch(`https://contact-manage-server-rho.vercel.app/contacts/category/${selectedOption}`)
             .then(res => res.json())
             .then(data => {
                 setCateContacts(data)

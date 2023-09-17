@@ -39,7 +39,7 @@ const ProfileMenu = ({ setProfileNav }) => {
                 if (data.success) {
                     const image = data.data.display_url;
                     console.log('image successfully uploaded', data.data.display_url);
-                    fetch(`http://localhost:4000/users/${user?.email}`, {
+                    fetch(`https://contact-manage-server-rho.vercel.app/users/${user?.email}`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json'

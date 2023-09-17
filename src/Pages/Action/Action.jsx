@@ -7,7 +7,7 @@ const Action = () => {
         queryKey: ['carts'],
         queryFn: async () => {
             try {
-                const response = await fetch(`http://localhost:4000/contacts`);
+                const response = await fetch(`https://contact-manage-server-rho.vercel.app/contacts`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

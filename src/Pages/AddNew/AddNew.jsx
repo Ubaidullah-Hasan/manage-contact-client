@@ -54,7 +54,7 @@ const AddNew = () => {
                         timeAt: new Date(),
                     }
                     // console.log(info)
-                    fetch("http://localhost:4000/contacts", {
+                    fetch("https://contact-manage-server-rho.vercel.app/contacts", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

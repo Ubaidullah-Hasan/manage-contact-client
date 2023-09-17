@@ -39,7 +39,7 @@ const ProfileMenu = ({ setProfileNav }) => {
                 if (data.success) {
                     const image = data.data.display_url;
                     console.log('image successfully uploaded', data.data.display_url);
-                    fetch(`https://contact-management-server-ten.vercel.app/users/${user?.email}`, {
+                    fetch(`http://localhost:4000/users/${user?.email}`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json'
@@ -50,9 +50,12 @@ const ProfileMenu = ({ setProfileNav }) => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data)
+                            // console.log(data)
                             updateUserProfile(user?.displayName, image)
-                                .then(() => console.log('update profile'))
+                                .then(() => {
+                                    console.log('update profile')
+                                    window.location.reload();
+                                })
                                 .catch(err => console.log(err))
                             setProfileNav(false);
                         })

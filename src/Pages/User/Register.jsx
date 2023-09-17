@@ -28,7 +28,7 @@ const Register = () => {
         createUserByEmail(email, password)
             .then(result => {
                 console.log(result.user);
-                fetch(`https://contact-management-server-ten.vercel.app/users`, {
+                fetch(`http://localhost:4000/users`, {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

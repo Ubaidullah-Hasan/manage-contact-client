@@ -20,7 +20,7 @@ const Home = () => {
 
     useEffect(() => {
         // Fetch total contact count
-        fetch("https://contact-management-server-ten.vercel.app/count")
+        fetch("http://localhost:4000/count")
             .then(res => res.json())
             .then(data => {
                 setSaveContact(data?.totalContacts);

@@ -5,7 +5,7 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 import Swal from 'sweetalert2';
 
 
-const UpdateModal = ({ setModal, modal, contact }) => {
+const UpdateModal = ({ setModal, modal, contact, refetch }) => {
     const [updating, setUpdating] = useState(false);
     // console.log(modal, contact)
     const { _id, name, email, category, phone } = contact;
@@ -45,6 +45,7 @@ const UpdateModal = ({ setModal, modal, contact }) => {
                         'success'
                     )
                     setUpdating(false);
+                    refetch();
                 }
             })
     }

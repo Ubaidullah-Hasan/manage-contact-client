@@ -42,6 +42,7 @@ const ContactCard = ({ contact, refetch }) => {
                     modal={modal}
                     setModal={setModal}
                     contact={contact}
+                    refetch={refetch}
                 ></UpdateModal>
             </div>
 

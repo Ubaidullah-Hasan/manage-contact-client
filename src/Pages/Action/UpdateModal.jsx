@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import "./modal.css"
 import { AiOutlineCloseCircle } from 'react-icons/ai';
@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 
 const UpdateModal = ({ setModal, modal, contact }) => {
+    const [updating, setUpdating] = useState(false);
     // console.log(modal, contact)
     const { _id, name, email, category, phone } = contact;
     let faLaName;
@@ -13,7 +14,7 @@ const UpdateModal = ({ setModal, modal, contact }) => {
         faLaName = name.split(/\s+/).filter(word => word !== '');
     }
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
         console.log(data)
@@ -24,7 +25,9 @@ const UpdateModal = ({ setModal, modal, contact }) => {
             category: data.category,
         }
         console.log(updateInfo)
-        fetch(`https://contact-management-server-ten.vercel.app/contacts/${_id}`, {
+        setUpdating(true);
+
+        fetch(`http://localhost:4000/contacts/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -41,6 +44,7 @@ const UpdateModal = ({ setModal, modal, contact }) => {
                         'Contact Updated!',
                         'success'
                     )
+                    setUpdating(false);
                 }
             })
     }
@@ -119,14 +123,15 @@ const UpdateModal = ({ setModal, modal, contact }) => {
                                     readOnly
                                     id="number"
                                     {...register("number", { required: true, minLength: 6, maxLength: 20 })}
-                                        className={`w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none cursor-not-allowed ${errors.number ? 'border-red-500' : ''}`}
+                                    className={`w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none cursor-not-allowed ${errors.number ? 'border-red-500' : ''}`}
                                 />
                             </div>
 
 
                             <button
+                                disabled={updating}
                                 type="submit"
-                                className="w-full py-2 px-4 mt-6 bg-green-600 hover:bg-green-700 text-white rounded-lg focus:outline-none "
+                                className="w-full py-2 px-4 mt-6 bg-green-600 disabled:bg-green-600/50 hover:bg-green-700 text-white rounded-lg focus:outline-none "
                             >
                                 Update
                             </button>

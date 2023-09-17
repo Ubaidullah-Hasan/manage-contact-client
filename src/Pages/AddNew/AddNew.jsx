@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -26,8 +26,9 @@ const AddNew = () => {
     };
 
 
+    const [adding, setAdding] = useState(false);
     const onSubmit = (data) => {
-
+        setAdding(true);
         // console.log(data)
 
         const formData = new FormData();
@@ -53,7 +54,7 @@ const AddNew = () => {
                         timeAt: new Date(),
                     }
                     // console.log(info)
-                    fetch("https://contact-management-server-ten.vercel.app/contacts", {
+                    fetch("http://localhost:4000/contacts", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",
@@ -70,8 +71,17 @@ const AddNew = () => {
                                     'New Contact Added!',
                                     'success'
                                 )
+                                setAdding(false);
                             }
 
+                        })
+                        .catch(() => {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'Do you want to continue',
+                                icon: 'error',
+                            })
+                            setAdding(false);
                         })
                 }
 
@@ -81,6 +91,7 @@ const AddNew = () => {
                     text: 'Do you want to continue',
                     icon: 'error',
                 })
+                setAdding(false);
             })
 
     };
@@ -173,10 +184,15 @@ const AddNew = () => {
 
 
                 <button
+                    disabled={adding}
                     type="submit"
-                    className="font-bold uppercase w-full py-2 px-4 mt-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+                    className="flex items-center justify-center font-bold uppercase w-full py-2 px-4 mt-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-500/50 focus:outline-none focus:ring focus:border-blue-300"
                 >
-                    Add Contact
+                    {
+                        adding ?
+                            <span className="loading loading-spinner text-white"></span>
+                            : 'Add Contact'
+                    }
                 </button>
             </form>
 

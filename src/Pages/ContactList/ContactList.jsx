@@ -25,7 +25,7 @@ const ContactList = () => {
 
 
     useEffect(() => {
-        fetch("https://contact-management-server-ten.vercel.app/contacts")
+        fetch("http://localhost:4000/contacts")
             .then(res => res.json())
             .then(data => {
                 setContacts(data);
@@ -95,7 +95,7 @@ const ContactList = () => {
 
         if (event) {
             event.preventDefault();
-            fetch(`https://contact-management-server-ten.vercel.app/contacts/search?query=${searchText}`)
+            fetch(`http://localhost:4000/contacts/search?query=${searchText}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
